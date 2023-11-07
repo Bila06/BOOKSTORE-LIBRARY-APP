@@ -25,6 +25,7 @@ author: String(inputs.author),
 description: String(inputs.description),
 price: Number(inputs.price),
 image: String(inputs.image),
+bookfile: String(inputs.bookfile),
 available: Boolean(checked)
 
 }).then(res => res.data)
@@ -106,6 +107,15 @@ const handleChange = (e) => {
       variant="outlined" 
       name="image" 
       />
+       <FormLabel>pdf</FormLabel>
+      <TextField 
+      value={inputs.bookfile} 
+      onChange={handleChange} 
+      margin="normal" 
+      fullWidth 
+      variant="outlined" 
+      name="bookfile" 
+      />
       <FormControlLabel 
       control={<Checkbox checked={checked} onChange={() => setChecked(!checked)} />} 
       label="Available" 
@@ -113,7 +123,7 @@ const handleChange = (e) => {
       <Button variant="contained" type="submit">Update Book</Button>
       </Box>
     </form>)}
-
+    
 
   </div>);
 }

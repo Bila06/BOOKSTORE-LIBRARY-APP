@@ -28,7 +28,12 @@ image: {
  required: true
 
            },
-selectedFile: mongoose.Schema.Types.Mixed, 
+bookfile: {
+               type: String,
+               required: true
+              
+                         },
+// selectedFile: mongoose.Schema.Types.Mixed, 
 });
 
 

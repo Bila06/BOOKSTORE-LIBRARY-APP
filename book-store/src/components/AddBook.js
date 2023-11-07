@@ -14,14 +14,14 @@ import { useNavigate } from 'react-router-dom';
 
 const AddBook = () => {
   const history = useNavigate();
-  const [file, setfile] = useState();
+ 
 const [inputs, setInputs] = useState({
 name: "",
 description: "",
 price: "",
 author: "",
-
 image: "",
+bookfile: "",
 });
 const [checked, setChecked] = useState(false);
 const handleChange = (e) => {
@@ -43,6 +43,7 @@ author: String(inputs.author),
 description: String(inputs.description),
 price: Number(inputs.price),
 image: String(inputs.image),
+bookfile: String(inputs.bookfile),
 available: Boolean(checked)
 }).then(res => res.data); 
 }
@@ -115,7 +116,15 @@ sendRequest().then(() => history("/books"));
       variant="outlined" 
       name="image" 
       />
-     
+        <FormLabel>pdf</FormLabel>
+      <TextField 
+      value={inputs.bookfile} 
+      onChange={handleChange} 
+      margin="normal" 
+      fullWidth 
+      variant="outlined" 
+      name="bookfile" 
+      />
       <FormControlLabel 
       control={<Checkbox checked={checked} onChange={() => setChecked(!checked)} />} 
       label="Available" 
